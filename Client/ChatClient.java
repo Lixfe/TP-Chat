@@ -23,4 +23,15 @@ public class ChatClient {
 	}
   }
 
+  
+  //MAIN
+  public static void main(String[] args) {
+	//Initialisation du chat
+	  ChatClient sessionChat = new ChatClient();
+	
+	//Lancement de la fenetre graphique
+	  FenetreChat fenetre = new FenetreChat();
+	  
+  }
+  
 }
