@@ -39,6 +39,12 @@ public class FenetreChat {
 	    
 	    this.fenetre.pack(); 
 	    this.fenetre.setVisible(true); 
+	    
+	    GestionEnvoyer gestionEnvoi = new GestionEnvoyer(this); 
+	    this.boutonEnvoyer.addActionListener(gestionEnvoi); 
+	    
+	    GestionQuitter gestionQuitter = new GestionQuitter(); 
+	    this.boutonQuitter.addActionListener(gestionQuitter);
 	}
 	
 }
