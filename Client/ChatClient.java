@@ -1,16 +1,26 @@
 package Client;
-import Partage.Message;
+import java.util.LinkedList;
+
+import Partage.*;
 
 public class ChatClient {
 
+  //ATTRIBUTS
   public Integer numDernierMessage;
-
   protected String adresseServeur;
 
-  public void afficher( LinkedList<Message>) {
+  //CONSTRUCTEUR
+  public ChatClient() {
+	  this.adresseServeur="";
+	  this.numDernierMessage = 0;
   }
 
-  public void ChatClient() {
+  
+  //METHODES
+  public void afficher(LinkedList<Message> msglist ) {
+	  for (int  i = 0 ; i < msglist.size(); i++) {
+		System.out.println(msglist.get(i).getContenu());
+	}
   }
 
 }
