@@ -96,17 +96,14 @@ public class ChatServeur extends UnicastRemoteObject implements ChatGestion {
 	  try {
 		  // Creation du serveur de nom - rmiregistry
 		  Registry registry = LocateRegistry.createRegistry(port);
-		  //Security manager
-		  if (System.getSecurityManager() == null) {
-			  System.setSecurityManager(new RMISecurityManager());
-		  }
 
 		  // Creation d une instance de l objet serveur
 		  ChatServeur serveurDeChat = new ChatServeur();	
 		  // Calcul de l URL du serveur
 		  URL = "//"+InetAddress.getLocalHost().getHostName()+":"+port+"/ChatServeur";
-		  System.out.println(URL);
+		
 		  Naming.rebind(URL, serveurDeChat);
+		  System.out.println(URL);
 		  
 	  } 
 
@@ -121,6 +118,7 @@ public class ChatServeur extends UnicastRemoteObject implements ChatGestion {
 		  e.printStackTrace();
 	  }
 
+	  
 
   }
 

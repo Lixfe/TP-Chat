@@ -16,10 +16,17 @@ public class TPChat {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String url = args[0]; // premier parametre, indiquant l'url du serveur distant
+		String url = "//LUC:1097/ChatServeur"; // premier parametre, indiquant l'url du serveur distant
 		
 		try {
-			ChatServeur serveur = (ChatServeur) Naming.lookup(url);
+			
+			ChatGestion serveur = (ChatGestion) Naming.lookup(url);
+			
+			
+			
+			serveur.envoyerMessage("test message", "testid");
+			serveur.recevoirMessage(1);
+			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
