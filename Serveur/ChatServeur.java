@@ -1,5 +1,7 @@
 package Serveur;
 
+import java.rmi.Naming;
+import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.util.LinkedList;
 import java.rmi.server.UnicastRemoteObject;
@@ -79,5 +81,39 @@ public class ChatServeur extends UnicastRemoteObject implements ChatGestion {
 	  }
 	  
   };
+  
+  
+  public static void main(String[] args) {
+	  // TODO Auto-generated method stub
+
+	  int port; String URL;
+	  try { // transformation d une chaine de caracteres en entier
+		  Integer I = new Integer(args[0]); port = I.intValue();
+	  } catch (Exception ex) {
+		  System.out.println(" Please enter: Server <port>"); return;
+	  }
+
+	  try {
+		  // Creation du serveur de nom - rmiregistry
+		  Registry registry = LocateRegistry.createRegistry(port);
+		  //Security manager
+		  if (System.getSecurityManager() == null) {
+			  System.setSecurityManager(new RMISecurityManager());
+		  }
+
+		  // Creation d une instance de l objet serveur
+		  ChatServeur serveurDeChat = new ChatServeur();	
+		  // Calcul de l URL du serveur
+		  URL = "//"+InetAddress.getLocalHost().getHostName()+":"+
+				  port+"/ChatServeur";
+		  Naming.rebind(URL, serveurDeChat);
+	  } 
+
+	  catch (Exception e){
+		  e.printStackTrace();
+	  }
+
+
+  }
 
 }
