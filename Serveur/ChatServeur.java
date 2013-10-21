@@ -104,11 +104,19 @@ public class ChatServeur extends UnicastRemoteObject implements ChatGestion {
 		  // Creation d une instance de l objet serveur
 		  ChatServeur serveurDeChat = new ChatServeur();	
 		  // Calcul de l URL du serveur
-		  URL = "//"+InetAddress.getLocalHost().getHostName()+":"+
-				  port+"/ChatServeur";
+		  URL = "//"+InetAddress.getLocalHost().getHostName()+":"+port+"/ChatServeur";
+		  System.out.println(URL);
 		  Naming.rebind(URL, serveurDeChat);
+		  
 	  } 
 
+	  catch(java.security.AccessControlException e){
+		  System.out.println("Accès au port "+port+" refusé");
+		  System.exit(1);
+	  }
+	  catch(ExportException e){
+		  System.out.println("Port déja utilisé");
+	  }
 	  catch (Exception e){
 		  e.printStackTrace();
 	  }
