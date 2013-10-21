@@ -23,12 +23,12 @@ public class ChatServeur extends UnicastRemoteObject implements ChatGestion {
   };
 
   /**
-   * Methode envoyerMessage : méthode appelée par le client pour envoyer un message.
-   * Le serveur lorsqu'il reçoit le message, l'ajoute à la liste de messages.
+   * Methode envoyerMessage : methode appelee par le client pour envoyer un message.
+   * Le serveur lorsqu'il recoit le message, l'ajoute a la liste de messages.
    */
   public void envoyerMessage(String message,  String id) throws RemoteException{
 	  int numero;
-	  numero = this.listeMessages.getFirst().getNumeroMessage();
+	  numero = this.listeMessages.getFirst().getNumeroMessage()+1;
 	  Message nouveauMessage = new Message(id, numero, message);
 	  this.listeMessages.addFirst(nouveauMessage);
   };

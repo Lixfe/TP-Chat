@@ -10,7 +10,7 @@ public class Message {
   /**
    * Constructeur d'un objet message
    * @param id : id de la personne envoyant le message
-   * @param numero : numero à attribuer au message
+   * @param numero : numero a attribuer au message
    * @param contenu : texte composant le message
    */
  public Message(String id, int numero, String contenuMessage){
