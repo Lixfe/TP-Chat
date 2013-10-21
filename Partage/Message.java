@@ -20,8 +20,10 @@ public class Message {
   }
 
   public String getContenu() {
-  return null;
+  return this.contenu;
   }
+  
+ 
   
   /**
    * Methode getNumeroMessage : getter pour obtenir le numero du message
