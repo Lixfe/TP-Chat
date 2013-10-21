@@ -6,10 +6,11 @@ public class CompteUtilisateur {
   public void deconnexion() {
   }
 
-  public void envoyer( String) {
+  public void envoyer(String msg) {
   }
 
-  public void CompteUtilisateur( String) {
+  public CompteUtilisateur(String id) {
+	  this.id=id ;
   }
 
 }
