@@ -13,7 +13,8 @@ import java.awt.*;
 public class FenetreChat {
 	
     private JFrame fenetre; 
-    private JLabel affichage; 
+    private JScrollPane scroll;
+    private JTextArea affichage; 
     private JTextField champSaisie; 
     private JButton boutonEnvoyer;
     private JButton boutonQuitter;
@@ -23,19 +24,27 @@ public class FenetreChat {
      */
 	public FenetreChat(){
 		this.fenetre = new JFrame("Fenetre de chat");
-		this.affichage = new JLabel();
-		this.champSaisie = new JTextField(100);
+		this.affichage = new JTextArea();
+		this.scroll = new JScrollPane(this.affichage);
+		this.champSaisie = new JTextField(50);
 		this.boutonEnvoyer = new JButton("Envoyer");
 		this.boutonQuitter = new JButton("Quitter");
 		
-		Container conteneur = fenetre.getContentPane(); 
-	    FlowLayout disposition = new FlowLayout(); 
+		this.affichage.setLineWrap(true); 
+		
+	    Container conteneur = fenetre.getContentPane(); 
+	    GridLayout disposition = new GridLayout(3, 1); 
+	    JPanel boutons = new JPanel(); 
+	    FlowLayout dispositionBoutons = new FlowLayout(); 
+	    
+	    boutons.setLayout(dispositionBoutons); 
+	    boutons.add(this.boutonEnvoyer); 
+	    boutons.add(this.boutonQuitter);
 	    
 	    conteneur.setLayout(disposition); 
-	    conteneur.add(this.affichage); 
+	    conteneur.add(this.scroll); 
 	    conteneur.add(this.champSaisie); 
-	    conteneur.add(this.boutonEnvoyer);
-	    conteneur.add(this.boutonQuitter);
+	    conteneur.add(boutons); 
 	    
 	    this.fenetre.pack(); 
 	    this.fenetre.setVisible(true); 
@@ -45,6 +54,18 @@ public class FenetreChat {
 	    
 	    GestionQuitter gestionQuitter = new GestionQuitter(); 
 	    this.boutonQuitter.addActionListener(gestionQuitter);
+	}
+	
+	public String contenuChampSaisie() {
+		String res = new String();
+		res = this.champSaisie.getText();
+		this.champSaisie.setText("");
+		return res;
+	}
+	
+	public void afficherTexte(String texte){
+		this.affichage.append(texte);
+		this.affichage.append("\r\n");
 	}
 	
 }

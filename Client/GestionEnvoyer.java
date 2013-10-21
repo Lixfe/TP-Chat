@@ -16,7 +16,7 @@ public class GestionEnvoyer implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		this.fenetre.afficherTexte(this.fenetre.contenuChampSaisie());
 
 	}
 
