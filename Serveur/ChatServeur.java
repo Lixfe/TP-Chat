@@ -30,7 +30,13 @@ public class ChatServeur extends UnicastRemoteObject implements ChatGestion {
    */
   public void envoyerMessage(String message,  String id) throws RemoteException{
 	  int numero;
-	  numero = this.listeMessages.getFirst().getNumeroMessage()+1;
+	  if (this.listeMessages.isEmpty()) {
+		  numero = 0 ;
+	  }
+	  else {
+		  numero = this.listeMessages.getFirst().getNumeroMessage()+1;
+	  }
+	  
 	  Message nouveauMessage = new Message(id, numero, message);
 	  this.listeMessages.addFirst(nouveauMessage);
   };
@@ -88,7 +94,8 @@ public class ChatServeur extends UnicastRemoteObject implements ChatGestion {
 
 	  int port; String URL;
 	  try { // transformation d une chaine de caracteres en entier
-		  Integer I = new Integer(args[0]); port = I.intValue();
+		  //Integer I = new Integer(args[0]); port = I.intValue(); pour avoir en numero de port le paramètre du main
+		  Integer I = new Integer(1098); port = I.intValue();
 	  } catch (Exception ex) {
 		  System.out.println(" Please enter: Server <port>"); return;
 	  }
