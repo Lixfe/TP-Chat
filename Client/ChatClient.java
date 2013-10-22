@@ -1,12 +1,14 @@
 package Client;
-import java.util.LinkedList;
 
+import java.util.LinkedList;
+import java.rmi.*;
 import Partage.*;
+import Serveur.ChatGestion;
 
 public class ChatClient {
 
   //ATTRIBUTS
-  public Integer numDernierMessage;
+  protected Integer numDernierMessage;
   protected String adresseServeur;
 
   //CONSTRUCTEUR
@@ -16,12 +18,6 @@ public class ChatClient {
   }
 
   
-  //METHODES
-  public void afficher(LinkedList<Message> msglist ) {
-	  for (int  i = 0 ; i < msglist.size(); i++) {
-		System.out.println(msglist.get(i).getContenu());
-	}
-  }
 
   
   //MAIN
@@ -29,9 +25,22 @@ public class ChatClient {
 	//Initialisation du chat
 	  ChatClient sessionChat = new ChatClient();
 	
-	//Lancement de la fenetre graphique
-	  FenetreChat fenetre = new FenetreChat();
+
 	  
+	  try {
+		  // Récupération d'un stub sur l'objet serveur.
+		  ChatGestion objServeur = (ChatGestion) Naming.lookup("//Green:8000/ChatServeur");
+		  System.out.println("Connecté au serveur");
+
+		  //Lancement de la fenetre graphique
+		  FenetreChat fenetre = new FenetreChat(objServeur);
+		  
+		  
+		  
+		  } catch (Exception exc) {
+			  System.out.println("Impossible récupérer objet serveur");
+		  }
+
   }
   
 }

@@ -23,7 +23,9 @@ public class Message {
   return this.contenu;
   }
   
- 
+ public String getIdSender(){
+	 return this.idSender;
+ }
   
   /**
    * Methode getNumeroMessage : getter pour obtenir le numero du message

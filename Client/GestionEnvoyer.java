@@ -16,7 +16,7 @@ public class GestionEnvoyer implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		this.fenetre.afficherTexte(this.fenetre.contenuChampSaisie());
+		this.fenetre.gestionEntree(this.fenetre.contenuChampSaisie());
 
 	}
 

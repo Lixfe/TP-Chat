@@ -30,7 +30,14 @@ public class ChatServeur extends UnicastRemoteObject implements ChatGestion {
    */
   public void envoyerMessage(String message,  String id) throws RemoteException{
 	  int numero;
+	  if (this.listeMessages.isEmpty())
+	  {
+		  numero = 1;
+	  }
+	  else
+	  {
 	  numero = this.listeMessages.getFirst().getNumeroMessage()+1;
+	  }
 	  Message nouveauMessage = new Message(id, numero, message);
 	  this.listeMessages.addFirst(nouveauMessage);
   };
