@@ -1,5 +1,10 @@
 package Partage;
-public class Message {
+
+import java.io.Serializable;
+
+public class Message  implements Serializable {
+
+  private static final long serialVersionUID = 1L;
 
   protected String idSender;
 
@@ -13,7 +18,7 @@ public class Message {
    * @param numero : numero a attribuer au message
    * @param contenu : texte composant le message
    */
- public Message(String id, int numero, String contenuMessage){
+ public Message (String id, int numero, String contenuMessage){
 	  this.idSender = id;
 	  this.numeroMessage = numero;
 	  this.contenu = contenuMessage;

@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import Partage.*;
 import Serveur.* ;
+import Serveur.* ;
 
 public class TPChat {
 
@@ -18,7 +19,7 @@ public class TPChat {
 		
 		//ChatServeur serveurtest = new ChatServeur();
 		//serveurtest.main("1099");
-		String url = "//LUC:1098/ChatServeur"; // premier parametre, indiquant l'url du serveur distant
+		String url = "//localhost:1097/ChatServeur"; // premier parametre, indiquant l'url du serveur distant
 		
 		try {
 			
