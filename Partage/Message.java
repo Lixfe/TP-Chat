@@ -19,11 +19,11 @@ public class Message {
 	  this.contenu = contenuMessage;
   }
 
+ 
+ //GETTERS
   public String getContenu() {
   return this.contenu;
   }
-  
- 
   
   /**
    * Methode getNumeroMessage : getter pour obtenir le numero du message
@@ -33,4 +33,9 @@ public class Message {
 	  return this.numeroMessage;
   }
 
+  public String getIdSender() {
+	return idSender;
+  }
+  
+ 
 }

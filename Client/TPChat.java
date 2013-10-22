@@ -16,7 +16,9 @@ public class TPChat {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String url = "//LUC:1097/ChatServeur"; // premier parametre, indiquant l'url du serveur distant
+		//ChatServeur serveurtest = new ChatServeur();
+		//serveurtest.main("1099");
+		String url = "//LUC:1099/ChatServeur"; // premier parametre, indiquant l'url du serveur distant
 		
 		try {
 			
