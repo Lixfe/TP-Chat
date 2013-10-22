@@ -19,7 +19,7 @@ public class ChatClient {
   //METHODES
   public void afficher(LinkedList<Message> msglist ) {
 	  for (int  i = 0 ; i < msglist.size(); i++) {
-		System.out.println(msglist.get(i).getContenu());
+		System.out.println(msglist.get(i).getNumeroMessage()+" : "+ msglist.get(i).getIdSender()+" : "+ msglist.get(i).getContenu());
 	}
   }
 
